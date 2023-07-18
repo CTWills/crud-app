@@ -22,6 +22,13 @@ app.get('/users', (req, res) => {
         .from('users')
         .then(data => res.status(200).json(data))
 })
+app.get('/users/:username', (req, res) => {
+    let { username } = req.params;
+    knex.select('*')
+        .from('users')
+        .where({'username': username})
+        .then((data) => res.status(200).json(data))
+})
 //UPDATE
 app.patch('/users/:id', (req, res) => {
     let { id } = req.params;
@@ -57,6 +64,13 @@ app.post('/items', (req, res) => {
 app.get('/items', (req, res) => {
     knex.select('*')
         .from('items')
+        .then(data => res.status(200).send(data))
+})
+app.get('/items/:itemName', (req, res) => {
+    let { itemName } = req.params;
+    knex.select('*')
+        .from('items')
+        .where({'item_name': itemName})
         .then(data => res.status(200).send(data))
 })
 //UPDATE
