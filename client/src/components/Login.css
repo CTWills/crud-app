@@ -1,4 +1,4 @@
-.login-form {
+.login-form, .create-form {
     display: flex;
     flex-direction: column;
     height: 50vh;

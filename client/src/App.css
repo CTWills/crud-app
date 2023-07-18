@@ -7,6 +7,8 @@
 h1 {
     margin: 0px;
     margin-left: 2vw;
+    cursor: pointer;
+    width: 11vw;
 }
 
 .app {

@@ -5,9 +5,23 @@ import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
     const navigate = useNavigate();
-    
+
     return (
-            <form className='login-form' autoComplete='off'>
+            <form className='create-form' autoComplete='off'>
+                    <TextField
+                        required
+                        id="first_name"
+                        label="First Name"
+                        variant="outlined"
+                        onChange={(e) => console.log(e.target.value)}
+                    />
+                    <TextField
+                        required
+                        id="last_name"
+                        label="Last Name"
+                        variant="outlined"
+                        onChange={(e) => console.log(e.target.value)}
+                    />
                     <TextField
                         required
                         id="username"
@@ -24,10 +38,7 @@ const Create = () => {
                         variant="outlined"
                         onChange={(e) => console.log(e.target.value)}
                     />
-                <div className='login-buttons'>
-                    <Button id='login-button' variant='contained' type='submit'>Login</Button>
-                    <Button variant='contained' type='button' onClick={() => navigate('/create')}>Create</Button>
-                </div>
+                    <Button variant='contained' type='submit'>Create</Button>
             </form>
     )
 }
