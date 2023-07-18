@@ -33,7 +33,7 @@ const Create = () => {
             .then(data => console.log(data.message))
     }
     return (
-            <form className='create-form' autoComplete='off'>
+            <form className='create-form' autoComplete='off' onSubmit={(e) => {onSubmitHandler(e); navigate('/')}}>
                     <TextField
                         required
                         id="first_name"
@@ -64,7 +64,7 @@ const Create = () => {
                         variant="outlined"
                         onChange={(e) => onChangeHandler(e)}
                     />
-                    <Button variant='contained' type='submit' onClick={(e) => {onSubmitHandler(e); navigate('/')}}>Create</Button>
+                    <Button variant='contained' type='submit'>Create</Button>
             </form>
     )
 }
