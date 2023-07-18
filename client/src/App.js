@@ -5,9 +5,12 @@ import Login from './components/Login';
 const App = () => {
   return (
     <div className='app'>
-        <Routes>
-          <Route path='/' element={<Login />}/>
-        </Routes>
+      <h1>The Inventory</h1>
+      <div className='flex-container'>
+          <Routes>
+            <Route path='/' element={<Login />}/>
+          </Routes>
+      </div>
     </div>
   )
 }
