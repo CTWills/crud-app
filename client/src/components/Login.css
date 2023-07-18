@@ -1,0 +1,14 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 25vw;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    row-gap: 1vh;
+}
+
+#login-button {
+    margin-right: 1vw;
+}
