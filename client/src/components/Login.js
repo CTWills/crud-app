@@ -2,18 +2,44 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Login = () => {
     const navigate = useNavigate();
+    const [ loginInfo, setLoginInfo ] = useState({
+        username: '',
+        password: ''
+    });
+    const [ user, setUser ] = useState([]);
+
+    const onChangeHandler = (e) => {
+        let login = {...loginInfo};
+        login[e.target.id] = e.target.value;
+        setLoginInfo(login)
+    }
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:8080/users/${loginInfo.username}`)  
+            .then(res => res.json())
+            .then(data => {
+                setUser(data)
+                if (user.length > 0 && loginInfo.password === user[0].password) {
+                    navigate('/home')
+                } else {
+                    alert('Username or password did not match any records')
+                }
+            })
+    }
 
     return (
-            <form className='login-form' autoComplete='off'>
+            <form className='login-form' autoComplete='off' onSubmit={(e) => onSubmitHandler(e)}>
                     <TextField
                         required
                         id="username"
                         label="Username"
                         variant="outlined"
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={(e) => onChangeHandler(e)}
                     />
                     <TextField
                         required
@@ -22,7 +48,7 @@ const Login = () => {
                         type="password"
                         autoComplete="current-password"
                         variant="outlined"
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={(e) => onChangeHandler(e)}
                     />
                 <div className='login-buttons'>
                     <Button id='login-button' variant='contained' type='submit'>Login</Button>

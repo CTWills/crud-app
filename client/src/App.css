@@ -5,13 +5,14 @@
     margin-top: 10vh;
 }
 h1 {
-    margin: 0px;
+    margin-top: 0px;
     margin-left: 2vw;
+    padding-top: 1vh;
     cursor: pointer;
     width: 11vw;
 }
 
 .app {
-    background-color: rgba(252, 252, 239, 0.747);
+    background-color: rgb(216, 252, 252);
     height: 100vh;
 }

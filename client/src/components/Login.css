@@ -7,8 +7,13 @@
     justify-content: center;
     background-color: white;
     row-gap: 1vh;
+    border: .5vw ridge lightcyan
 }
 
 #login-button {
     margin-right: 1vw;
+}
+
+.login-buttons {
+    margin-top: 1vh;
 }
