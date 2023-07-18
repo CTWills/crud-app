@@ -3,9 +3,9 @@ import TextField from '@mui/material/TextField';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Create = () => {
     const navigate = useNavigate();
-
+    
     return (
             <form className='login-form' autoComplete='off'>
                     <TextField
@@ -32,4 +32,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Create;
