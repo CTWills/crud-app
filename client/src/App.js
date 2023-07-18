@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/Login';
 import Create from './components/Create';
 import { useNavigate } from 'react-router-dom';
+import Home from './components/Home';
 
 const App = () => {
   const navigate = useNavigate();
@@ -16,6 +17,9 @@ const App = () => {
             <Route path='/create' element={<Create />}/>
           </Routes>
       </div>
+      <Routes>
+        <Route path='/home' element={<Home />}/>
+      </Routes>
     </div>
   )
 }
