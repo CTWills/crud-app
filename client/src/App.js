@@ -15,13 +15,11 @@ const App = () => {
     <UserContext.Provider value={ {user, setUser} } >
       <div className='app'>
         <h1 onClick={() => navigate('/')}>The Inventory</h1>
-        <div className='flex-container'>
-            <Routes>
-              <Route path='/' element={<Login />}/>
-              <Route path='/create' element={<Create />}/>
-              <Route path='/homepage' element={<Home />}/>
-            </Routes>
-        </div>
+          <Routes>
+            <Route path='/' element={<Login />}/>
+            <Route path='/create' element={<Create />}/>
+            <Route path='/homepage' element={<Home />}/>
+          </Routes>
       </div>
     </UserContext.Provider>
   )

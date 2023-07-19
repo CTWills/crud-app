@@ -5,7 +5,7 @@ const Home = () => {
     const { user } = useContext(UserContext)
     return (
         <>
-            This is the home page! for {user[0].first_name} {console.log(user)}
+            This is the home page! for {user.first_name}
         </>
     )
 }

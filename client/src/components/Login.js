@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import './Login.css';
+import './Login_Create.css';
 import { useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { UserContext } from '../App';
@@ -24,12 +24,18 @@ const Login = () => {
         fetch(`http://localhost:8080/users/${loginInfo.username}`)  
             .then(res => res.json())
             .then(data => {
-                setUser(data)
-                navigate('/homepage')
+                let profileData = data[0];
+                if (data.length > 0 && loginInfo.username === profileData.username && loginInfo.password === profileData.password) {
+                    setUser(profileData)
+                    navigate('/homepage')
+                } else {
+                    alert('No username or password matches')
+                }
             })
     }
 
     return (
+        <div className='flex-container'>
             <form className='login-form' autoComplete='off' onSubmit={(e) => onSubmitHandler(e)}>
                     <TextField
                         required
@@ -52,6 +58,7 @@ const Login = () => {
                     <Button variant='contained' type='button' onClick={() => navigate('/create')}>Create</Button>
                 </div>
             </form>
+        </div>
     )
 }
 

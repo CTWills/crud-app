@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import './Login.css';
+import './Login_Create.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -33,6 +33,7 @@ const Create = () => {
             .then(data => console.log(data.message))
     }
     return (
+        <div className='flex-container'>
             <form className='create-form' autoComplete='off' onSubmit={(e) => {onSubmitHandler(e); navigate('/')}}>
                     <TextField
                         required
@@ -66,6 +67,7 @@ const Create = () => {
                     />
                     <Button variant='contained' type='submit'>Create</Button>
             </form>
+        </div>
     )
 }
 
