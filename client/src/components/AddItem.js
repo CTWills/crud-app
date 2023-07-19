@@ -11,7 +11,7 @@ const AddItem = () => {
     const [ itemInfo, setItemInfo ] = useState({
         users_id: user.id,
         item_name: '',
-        desctription: '',
+        description: '',
         quantity: 0
     })
 
@@ -33,7 +33,7 @@ const AddItem = () => {
         fetch('http://localhost:8080/items', init)
             .then(res => res.json())
             .then(data => {console.log(data.message); navigate('/homepage')})
-            .catch(err => alert('Could not connect to server. Profile was not created. Please try again in a few minutes.'))
+            .catch(err => alert('Could not connect to server. Item was not created. Please try again in a few minutes.'))
     }
 
     return (
@@ -41,23 +41,28 @@ const AddItem = () => {
             <form className='add-item-form' autoComplete='off' onSubmit={(e) => onSubmitHandler(e)}>
                     <TextField
                         required
-                        id="username"
-                        label="Username"
+                        id="item_name"
+                        label="Item Name"
                         variant="outlined"
                         onChange={(e) => onChangeHandler(e)}
                     />
                     <TextField
                         required
-                        id="password"
-                        label="Password"
-                        type="password"
-                        autoComplete="current-password"
+                        id="description"
+                        label="Description"
+                        variant="outlined"
+                        onChange={(e) => onChangeHandler(e)}
+                    />
+                    <TextField
+                        required
+                        type='number'
+                        id="quantity"
+                        label="Quantity"
                         variant="outlined"
                         onChange={(e) => onChangeHandler(e)}
                     />
                 <div className='login-buttons'>
-                    <Button id='login-button' variant='contained' type='submit' >Login</Button>
-                    <Button variant='contained' type='button' onClick={() => navigate('/create')}>Create</Button>
+                    <Button id='item-button' variant='contained' type='submit' >Create Item</Button>
                 </div>
             </form>
         </div>

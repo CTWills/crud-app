@@ -5,6 +5,7 @@ import Create from './components/Create';
 import { useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import { useState, createContext } from 'react';
+import AddItem from './components/AddItem';
 export const UserContext = createContext();
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
             <Route path='/' element={<Login />}/>
             <Route path='/create' element={<Create />}/>
             <Route path='/homepage' element={<Home />}/>
+            <Route path='/additem' element={<AddItem />}/>
           </Routes>
       </div>
     </UserContext.Provider>

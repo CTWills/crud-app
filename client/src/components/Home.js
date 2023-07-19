@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 
 const Home = () => {
+    const navigate = useNavigate();
     const { user } = useContext(UserContext)
     const [ items, setItems ] = useState([]);
 
@@ -17,7 +19,7 @@ const Home = () => {
     return (
         <div className='home-page-container'>
             <Tooltip title='Add a new item'>
-                <Button variant='contained' type='button'>Add</Button>
+                <Button variant='contained' type='button' onClick={() => navigate('/additem')}>Add</Button>
             </Tooltip>
             {items.length > 0 ? items.map(item => <div key={item.id}>{item.item_name}</div>) : <div>Items are loading</div>}
         </div>

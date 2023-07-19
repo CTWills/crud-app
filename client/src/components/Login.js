@@ -11,7 +11,7 @@ const Login = () => {
         username: '',
         password: ''
     });
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
 
     const onChangeHandler = (e) => {
         let login = {...loginInfo};
