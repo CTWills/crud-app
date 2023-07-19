@@ -5,7 +5,7 @@
     margin-top: 10vh;
 }
 
-.login-form, .create-form {
+.login-form, .create-form, .add-item-form {
     display: flex;
     flex-direction: column;
     height: 50vh;
