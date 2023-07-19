@@ -1,0 +1,14 @@
+.item-container {
+    display: flex;
+    height: 91.5vh;
+    justify-content: center;
+}
+
+.item-header {
+    text-align: center;
+    width: auto;
+}
+
+#description {
+    word-wrap: break-word;
+}

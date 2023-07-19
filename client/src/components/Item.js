@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Item.css';
+import Box from '@mui/material/Box';
 
 const Item = () => {
 let { itemId } = useParams();
@@ -12,10 +13,27 @@ useEffect(() => {
         .then(data => setItem(data))
 }, [itemId])
 
+const boxSX = {
+    border: '.5vw ridge lightcyan',
+    height: '50vh',
+    width: '30vw',
+    padding: '1vw',
+}
+
+const renderItemDetails = (item) => item.map((e) => 
+    <div className='item-details' key={e.id}>
+        <h1 className='item-header'>{e.item_name}</h1>
+        <div id='description'><h4>Description:</h4> {e.description}</div>
+        <div><h4>Quantity:</h4> {e.quantity}</div>
+    </div>
+);
+
 
     return (
         <div className='item-container'>
-            {item.map((e) => <div key={e.id}>{e.item_name}: {e.description} Quantity: {e.quantity}</div>)}
+            <Box sx={boxSX}>
+                {renderItemDetails(item)}
+            </Box>
         </div>
     )
 }
