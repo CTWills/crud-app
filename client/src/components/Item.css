@@ -1,6 +1,6 @@
 .item-container {
     display: flex;
-    height: 91.5vh;
+    height: 85vh;
     justify-content: center;
 }
 
@@ -11,4 +11,12 @@
 
 #description {
     word-wrap: break-word;
+}
+
+#edit-description {
+    width: 30vw;
+}
+
+#quantity {
+    margin-bottom: 3vh;
 }
