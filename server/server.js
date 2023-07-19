@@ -75,11 +75,11 @@ app.get('/items', (req, res) => {
             .then(userItems => res.status(200).json(userItems))
     }
 })
-app.get('/items/:itemName', (req, res) => {
-    let { itemName } = req.params;
+app.get('/items/:id', (req, res) => {
+    let { id } = req.params;
     knex.select('*')
         .from('items')
-        .where({'item_name': itemName})
+        .where({'id': id})
         .then(data => res.status(200).json(data))
 })
 //UPDATE

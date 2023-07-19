@@ -21,7 +21,7 @@ const Home = () => {
             <Tooltip title='Add a new item'>
                 <Button variant='contained' type='button' onClick={() => navigate('/additem')}>Add</Button>
             </Tooltip>
-            {items.length > 0 ? items.map(item => <div key={item.id}>{item.item_name}</div>) : <div>Items are loading</div>}
+            {items.length > 0 ? items.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>) : <div>Items are loading</div>}
         </div>
     )
 }
