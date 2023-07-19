@@ -4,23 +4,26 @@ import Login from './components/Login';
 import Create from './components/Create';
 import { useNavigate } from 'react-router-dom';
 import Home from './components/Home';
+import { useState, createContext } from 'react';
+export const UserContext = createContext();
 
 const App = () => {
   const navigate = useNavigate();
+  const [ user, setUser ] = useState([]);
 
   return (
-    <div className='app'>
-      <h1 onClick={() => navigate('/')}>The Inventory</h1>
-      <div className='flex-container'>
-          <Routes>
-            <Route path='/' element={<Login />}/>
-            <Route path='/create' element={<Create />}/>
-          </Routes>
+    <UserContext.Provider value={ {user, setUser} } >
+      <div className='app'>
+        <h1 onClick={() => navigate('/')}>The Inventory</h1>
+        <div className='flex-container'>
+            <Routes>
+              <Route path='/' element={<Login />}/>
+              <Route path='/create' element={<Create />}/>
+              <Route path='/homepage' element={<Home />}/>
+            </Routes>
+        </div>
       </div>
-      <Routes>
-        <Route path='/home' element={<Home />}/>
-      </Routes>
-    </div>
+    </UserContext.Provider>
   )
 }
 

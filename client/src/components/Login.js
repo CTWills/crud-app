@@ -2,7 +2,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../App';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Login = () => {
         username: '',
         password: ''
     });
-    const [ user, setUser ] = useState([]);
+    const { user, setUser } = useContext(UserContext);
 
     const onChangeHandler = (e) => {
         let login = {...loginInfo};
@@ -24,11 +25,7 @@ const Login = () => {
             .then(res => res.json())
             .then(data => {
                 setUser(data)
-                if (user.length > 0 && loginInfo.password === user[0].password) {
-                    navigate('/home')
-                } else {
-                    alert('Username or password did not match any records')
-                }
+                navigate('/homepage')
             })
     }
 
@@ -51,7 +48,7 @@ const Login = () => {
                         onChange={(e) => onChangeHandler(e)}
                     />
                 <div className='login-buttons'>
-                    <Button id='login-button' variant='contained' type='submit'>Login</Button>
+                    <Button id='login-button' variant='contained' type='submit' >Login</Button>
                     <Button variant='contained' type='button' onClick={() => navigate('/create')}>Create</Button>
                 </div>
             </form>
