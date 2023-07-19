@@ -62,16 +62,24 @@ app.post('/items', (req, res) => {
 })
 //READ
 app.get('/items', (req, res) => {
-    knex.select('*')
-        .from('items')
-        .then(data => res.status(200).send(data))
+    let { id } = req.query;
+    if (!id) {
+        knex.select('*')
+            .from('items')
+            .then(data => res.status(200).json(data))
+    } else {
+        knex('items')
+            .join('users', 'users.id', 'items.users_id')
+            .where({'items.users_id': id})
+            .then(userItems => res.status(200).json(userItems))
+    }
 })
 app.get('/items/:itemName', (req, res) => {
     let { itemName } = req.params;
     knex.select('*')
         .from('items')
         .where({'item_name': itemName})
-        .then(data => res.status(200).send(data))
+        .then(data => res.status(200).json(data))
 })
 //UPDATE
 app.patch('/items/:id', (req, res) => {
