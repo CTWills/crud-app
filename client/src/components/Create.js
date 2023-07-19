@@ -30,11 +30,12 @@ const Create = () => {
         }
         fetch('http://localhost:8080/users', init)
             .then(res => res.json())
-            .then(data => console.log(data.message))
+            .then(data => {console.log(data.message); navigate('/')})
+            .catch(err => alert('Could not connect to server. Profile was not created. Please try again in a few minutes.'))
     }
     return (
         <div className='flex-container'>
-            <form className='create-form' autoComplete='off' onSubmit={(e) => {onSubmitHandler(e); navigate('/')}}>
+            <form className='create-form' autoComplete='off' onSubmit={(e) => onSubmitHandler(e)}>
                     <TextField
                         required
                         id="first_name"

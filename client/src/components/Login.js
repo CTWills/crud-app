@@ -32,6 +32,7 @@ const Login = () => {
                     alert('No username or password matches')
                 }
             })
+            .catch(() => alert('Could not connect to server. Please try again in a few minutes.'))
     }
 
     return (
