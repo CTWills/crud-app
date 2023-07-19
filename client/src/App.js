@@ -7,6 +7,7 @@ import Home from './components/Home';
 import { useState, createContext } from 'react';
 import AddItem from './components/AddItem';
 import Item from './components/Item';
+import GuestHome from './components/GuestHome';
 export const UserContext = createContext();
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
             <Route path='/homepage' element={<Home />}/>
             <Route path='/additem' element={<AddItem />}/>
             <Route path='/item/:itemId' element={<Item />}/>
+            <Route path='/guesthome' element={<GuestHome />}/>
           </Routes>
       </div>
     </UserContext.Provider>
