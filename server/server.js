@@ -67,8 +67,9 @@ app.get('/items', (req, res) => {
         knex.select('*')
             .from('items')
             .then(data => res.status(200).json(data))
-    } else {
+    } else if (id !== 'undefined') {
         knex('items')
+            .select('items.id', 'item_name', 'description', 'quantity')
             .join('users', 'users.id', 'items.users_id')
             .where({'items.users_id': id})
             .then(userItems => res.status(200).json(userItems))
