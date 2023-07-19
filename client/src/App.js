@@ -8,6 +8,7 @@ import { useState, createContext } from 'react';
 import AddItem from './components/AddItem';
 import Item from './components/Item';
 import GuestHome from './components/GuestHome';
+import GuestItem from './components/GuestItem';
 export const UserContext = createContext();
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='/additem' element={<AddItem />}/>
             <Route path='/item/:itemId' element={<Item />}/>
             <Route path='/guesthome' element={<GuestHome />}/>
+            <Route path='/guestview/:itemId' element={<GuestItem />}/>
           </Routes>
       </div>
     </UserContext.Provider>

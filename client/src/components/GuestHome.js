@@ -13,7 +13,7 @@ const GuestHome = () => {
 
     return (
         <div className='home-page-container'>
-            {items.length > 0 ? items.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>) : <div>Items are loading</div>}
+            {items.length > 0 ? items.map(item => <div key={item.id} onClick={() => navigate(`/guestview/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>) : <div>Items are loading</div>}
         </div>
     )
 }
