@@ -57,7 +57,7 @@ const Login = () => {
                 <div className='login-buttons'>
                     <Button id='login-button' variant='contained' type='submit' >Login</Button>
                     <Button variant='contained' type='button' onClick={() => navigate('/create')} sx={{marginRight: '1vw'}}>Create</Button>
-                    <Button variant='contained' type='button' onClick={() => navigate('/guesthome')}>Guest</Button>
+                    <Button variant='contained' type='button' onClick={() => navigate('/allitems')}>Guest</Button>
                 </div>
             </form>
         </div>

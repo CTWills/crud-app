@@ -19,8 +19,9 @@ const Home = () => {
     return (
         <div className='home-page-container'>
             <Tooltip title='Add a new item'>
-                <Button variant='contained' type='button' onClick={() => navigate('/additem')}>Add</Button>
+                <Button variant='contained' type='button' onClick={() => navigate('/additem')} sx={{marginRight: '1vw'}}>Add</Button>
             </Tooltip>
+            <Button variant='contained' type='button' onClick={() => navigate('/allitems')}>View All</Button>
             {items.length > 0 ? items.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>) : <div>Items are loading</div>}
         </div>
     )

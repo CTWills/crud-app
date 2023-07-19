@@ -32,7 +32,7 @@ const GuestItem = () => {
 
     return (
         <div>
-            <Button variant='contained' type='button' sx={{marginRight: '1vw'}} onClick={() => navigate('/guesthome')}>Home</Button>
+            <Button variant='contained' type='button' sx={{marginRight: '1vw'}} onClick={() => navigate('/allitems')}>Home</Button>
             <div className='item-container'>
                 <Box sx={boxSX}>
                     {renderItemDetails(item)}
