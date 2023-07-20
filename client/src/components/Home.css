@@ -19,6 +19,14 @@
     cursor: pointer;
 }
 
+.card-content {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 span {
     font-size: large;
     font-weight: bold;

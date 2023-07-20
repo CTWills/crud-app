@@ -18,7 +18,7 @@ const GuestHome = () => {
         if (items.length > 0) {
             return allItems.map((item) => (
                 <Card className='card' onClick={() => navigate(`/guestview/${item.id}`)} key={item.id}>
-                    <CardContent>
+                    <CardContent className='card-content'>
                         <Typography sx={{textAlign: 'center', fontWeight: 'bold', fontSize: 'larger', marginBottom: '1vh'}}>
                             {item.item_name}
                         </Typography >
@@ -27,6 +27,9 @@ const GuestHome = () => {
                         </Typography>
                         <Typography>
                             <span>Quantity:</span> {item.quantity}
+                        </Typography>
+                        <Typography>
+                            <span>Managed By:</span> {item.first_name} {item.last_name}
                         </Typography>
                     </CardContent>
                 </Card>
