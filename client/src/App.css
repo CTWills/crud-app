@@ -7,13 +7,16 @@
 }
 
 #header-logout {
-    margin-top: 0px;
-    margin-left: 2vw;
-    padding-top: 2vh;
     cursor: pointer;
-    width: 3vw;
-    height: 3vh;
-    text-align: center;
+}
+
+.header-logout {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1vh;
+    row-gap: 1vh;
+    justify-content: flex-start;
+    margin-right: 3vw;
 }
 
 .app {
