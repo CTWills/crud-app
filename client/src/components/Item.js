@@ -27,6 +27,7 @@ const Item = () => {
         height: '55vh',
         width: '30vw',
         padding: '1vw',
+        backgroundColor: 'white'
     }
 
     const handleOnChange = (e) => {

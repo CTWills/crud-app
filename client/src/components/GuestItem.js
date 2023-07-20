@@ -21,6 +21,7 @@ const GuestItem = () => {
         height: '50vh',
         width: '30vw',
         padding: '1vw',
+        backgroundColor: 'white'
     }
     const renderItemDetails = (item) => item.map((e) => 
         <div className='item-details' key={e.id}>
@@ -32,7 +33,7 @@ const GuestItem = () => {
 
     return (
         <div>
-            <Button variant='contained' type='button' sx={{marginRight: '1vw'}} onClick={() => navigate('/allitems')}>Home</Button>
+            <Button variant='contained' type='button' sx={{marginRight: '1vw'}} onClick={() => navigate('/allitems')} id='guesthome'>Home</Button>
             <div className='item-container'>
                 <Box sx={boxSX}>
                     {renderItemDetails(item)}
