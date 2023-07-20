@@ -17,8 +17,15 @@ const App = () => {
   
   return (
     <UserContext.Provider value={ {user, setUser} } >
-      <div className='app'>
-        <h1 id='main-header' onClick={() => navigate('/')}>The Inventory</h1>
+     <div className='app'>
+          <div className='header-container'>
+              <h1 id='main-header' onClick={() => {
+                if (user.id) {
+                  navigate('/homepage')
+                }
+              }}>The Inventory</h1>
+              <div id='header-logout' onClick={() => {navigate('/'); localStorage.setItem('id', '')}}>Logout</div>
+          </div>
           <Routes>
             <Route path='/' element={<Login />}/>
             <Route path='/create' element={<Create />}/>

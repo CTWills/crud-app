@@ -1,4 +1,4 @@
-#main-header {
+#main-header{
     margin-top: 0px;
     margin-left: 2vw;
     padding-top: 1vh;
@@ -6,7 +6,22 @@
     width: 11vw;
 }
 
+#header-logout {
+    margin-top: 0px;
+    margin-left: 2vw;
+    padding-top: 2vh;
+    cursor: pointer;
+    width: 3vw;
+    height: 3vh;
+    text-align: center;
+}
+
 .app {
     background-color: rgb(216, 252, 252);
     height: 100vh;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
 }
