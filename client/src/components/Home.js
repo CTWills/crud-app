@@ -3,6 +3,7 @@ import { UserContext } from '../App';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
+import './Home.css';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -37,17 +38,23 @@ const Home = () => {
     }, [user])
 
     return (
-        <div className='home-page-container'>
-            <Tooltip title='Add a new item'>
-                <Button variant='contained' type='button' onClick={() => navigate('/additem')} sx={{marginRight: '1vw'}}>Add</Button>
-            </Tooltip>
-            <Button variant='contained' type='button' onClick={() => setToggle(!toggle)}>{toggle ? 'Show Mine' : 'Show All'}</Button>
-            {items.length > 0 && toggle === false ? items.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>) 
-            : 
-            items.length > 0 && toggle === true ? allItems.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>)
-            :
-            <div>Loading inventory...</div>
-            }
+        <div >
+            <div className='home-buttons'>
+                <Tooltip title='Add a new item'>
+                    <Button variant='contained' type='button' onClick={() => navigate('/additem')} sx={{marginRight: '1vw'}}>Add</Button>
+                </Tooltip>
+                <Tooltip title="Toggle between your items and everyones'">
+                    <Button variant='contained' type='button' onClick={() => setToggle(!toggle)}>{toggle ? 'Show Mine' : 'Show All'}</Button>
+                </Tooltip>
+            </div>
+            <div className='homepage-items-container'>
+                {items.length > 0 && toggle === false ? items.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>) 
+                : 
+                items.length > 0 && toggle === true ? allItems.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>)
+                :
+                <div>Loading inventory...</div>
+                }
+            </div>
         </div>
     )
 }

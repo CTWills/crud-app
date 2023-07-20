@@ -1,0 +1,8 @@
+.home-buttons {
+    margin-left: 2vw;
+}
+
+.homepage-items-container {
+    display: flex;
+    justify-content: center;
+}
