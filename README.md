@@ -1,3 +1,3 @@
 # Getting started
-Fork and Clone this repository. \
-Testing
+1. Fork and Clone this repository. \
+2. Testing
