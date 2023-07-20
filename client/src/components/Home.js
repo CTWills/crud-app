@@ -96,7 +96,7 @@ const Home = () => {
             <div className='homepage-items-container'>
                 {generateCardForAccItems(items)}
                 {generateCardForAllAccItems(allItems)}
-                {items.length < 1 ? <>No items to display. Add items to get started</> : console.log('displaying items')}
+                {items.length < 1  && toggle === false ? <>No items to display. Add items to get started</> : console.log('displaying items')}
             </div>
         </div>
     )
