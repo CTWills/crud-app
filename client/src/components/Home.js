@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import './Home.css';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -35,7 +38,47 @@ const Home = () => {
         fetch(`http://localhost:8080/items`)
             .then(res => res.json())
             .then(data => setAllItems(data))
-    }, [user])
+    }, [])
+
+    const generateCardForAccItems = (items) => {
+        if (items.length > 0 && toggle === false) {
+            return items.map((item) => (
+                <Card className='card' onClick={() => navigate(`/item/${item.id}`)} key={item.id}>
+                    <CardContent>
+                        <Typography sx={{textAlign: 'center', fontWeight: 'bold', fontSize: 'larger', marginBottom: '1vh'}}>
+                            {item.item_name}
+                        </Typography >
+                        <Typography sx={{marginBottom: '1vh'}}>
+                            <span>Description:</span> {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description}
+                        </Typography>
+                        <Typography>
+                            <span>Quantity:</span> {item.quantity}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            ))
+        }
+    }
+
+    const generateCardForAllAccItems = (items) => {
+        if (items.length > 0 && toggle === true) {
+            return allItems.map((item) => (
+                <Card className='card' onClick={() => navigate(`/item/${item.id}`)} key={item.id}>
+                    <CardContent>
+                        <Typography sx={{textAlign: 'center', fontWeight: 'bold', fontSize: 'larger', marginBottom: '1vh'}}>
+                            {item.item_name}
+                        </Typography >
+                        <Typography sx={{marginBottom: '1vh'}}>
+                            <span>Description:</span> {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description}
+                        </Typography>
+                        <Typography>
+                            <span>Quantity:</span> {item.quantity}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            ))
+        }
+    }
 
     return (
         <div >
@@ -48,12 +91,15 @@ const Home = () => {
                 </Tooltip>
             </div>
             <div className='homepage-items-container'>
-                {items.length > 0 && toggle === false ? items.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>) 
+                {/* {items.length > 0 && toggle === false ? items.map(item => <Card key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</Card>) 
                 : 
                 items.length > 0 && toggle === true ? allItems.map(item => <div key={item.id} onClick={() => navigate(`/item/${item.id}`)}>{item.item_name}: {item.description.length > 100 ? `${item.description.slice(0, 98)}...` : item.description} Quantity: {item.quantity}</div>)
                 :
                 <div>Loading inventory...</div>
-                }
+                } */}
+                {generateCardForAccItems(items)}
+                {generateCardForAllAccItems(allItems)}
+                {items.length < 1 ? <>No items to display. Add items to get started</> : console.log('displaying items')}
             </div>
         </div>
     )

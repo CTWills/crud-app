@@ -24,7 +24,7 @@ const Item = () => {
 
     const boxSX = {
         border: '.5vw ridge lightcyan',
-        height: '50vh',
+        height: '55vh',
         width: '30vw',
         padding: '1vw',
     }

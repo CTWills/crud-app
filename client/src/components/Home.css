@@ -4,5 +4,22 @@
 
 .homepage-items-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+    row-gap: 1vh;
+    column-gap: 1vw;
+    margin: 5vw;
+}
+
+.card {
+    width: 14vw;
+    height: auto;
+    word-wrap: break-word;
+    border: .5vw ridge lightcyan;
+    cursor: pointer;
+}
+
+span {
+    font-size: large;
+    font-weight: bold;
 }
