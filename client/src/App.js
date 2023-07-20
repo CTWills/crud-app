@@ -18,7 +18,7 @@ const App = () => {
   return (
     <UserContext.Provider value={ {user, setUser} } >
       <div className='app'>
-        <h1 onClick={() => navigate('/')}>The Inventory</h1>
+        <h1 id='main-header' onClick={() => navigate('/')}>The Inventory</h1>
           <Routes>
             <Route path='/' element={<Login />}/>
             <Route path='/create' element={<Create />}/>

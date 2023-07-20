@@ -82,9 +82,11 @@ const Item = () => {
 
     return (
         <div>
-            <Button variant='contained' type='button' sx={{marginRight: '1vw'}} onClick={() => navigate('/homepage')}>Home</Button>
-            <Button variant='contained' type='button' sx={{marginRight: '1vw'}} onClick={() => handleDelete()}>Delete</Button>
-            <Button variant='contained' type='button' onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Finish' : 'Edit'}</Button>
+            <div className='item-buttons'>
+                <Button variant='contained' type='button' sx={{marginRight: '1vw'}} onClick={() => navigate('/homepage')}>Home</Button>
+                <Button variant='contained' type='button' sx={{marginRight: '1vw'}} onClick={() => handleDelete()}>Delete</Button>
+                <Button variant='contained' type='button' onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Finish' : 'Edit'}</Button>
+            </div>
             <div className='item-container'>
                 <Box sx={boxSX}>
                     {toggleEdit ? renderEditItemForm(item) : renderItemDetails(item)}

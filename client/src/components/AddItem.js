@@ -52,6 +52,7 @@ const AddItem = () => {
                         label="Description"
                         variant="outlined"
                         onChange={(e) => onChangeHandler(e)}
+                        inputProps={{maxLength: 250}}
                     />
                     <TextField
                         required
