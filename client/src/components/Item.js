@@ -72,7 +72,7 @@ const Item = () => {
         <div className='item-details' key={e.id}>
             <form autoComplete='off' onSubmit={() => handleOnSubmit()}>
                 <input className='item-header' type='string'  id='item_name' defaultValue={e.item_name} onChange={(e) => handleOnChange(e)}></input>
-                <div><h4>Description:</h4> <input type='string' id='edit-description' defaultValue={e.description} onChange={(e) => handleOnChange(e)}></input></div>
+                <div><h4>Description:</h4> <input type='string' id='description' defaultValue={e.description} onChange={(e) => handleOnChange(e)}></input></div>
                 <div><h4>Quantity:</h4> <input type='number' id='quantity' defaultValue={e.quantity} onChange={(e) => handleOnChange(e)}></input></div>
                 <Button variant='contained' type='submit' size='small'>Confirm</Button>
             </form>
